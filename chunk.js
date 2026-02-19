@@ -16,12 +16,11 @@ export class Chunk {
         for (let x = 0; x < this.chunkSize; x++) {
             this.tiles[x] = [];
             for (let y = 0; y < this.chunkSize; y++) {
-                const worldX = this.chunkX * this.chunkSize + x;
-                const worldY = this.chunkY * this.chunkSize + y;
-                this.tiles[x][y] = this.getBaseTile(worldX, worldY);
+                this.tiles[x][y] = Math.random() < 0.05 ? "dirt" : "grass";
             }
         }
     }
+
 
     getBaseTile(worldX, worldY) {
         return (worldX + worldY) % 2 === 0 ? "grass" : "dirt";
@@ -36,7 +35,7 @@ export class Chunk {
         for (let x = 0; x < this.chunkSize; x++) {
             for (let y = 0; y < this.chunkSize; y++) {
                 const tile = this.tiles[x][y];
-                ctx.fillStyle = tile === "grass" ? "#3c9d3c" : "#8b5a2b";
+                ctx.fillStyle = tile === "grass" ? "#274024" : "#42251d";
                 ctx.fillRect(
                     offsetX + x * this.tileSize,
                     offsetY + y * this.tileSize,

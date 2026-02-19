@@ -6,10 +6,10 @@ export class Player {
 
         // Size and speed scale with canvas size
         this.size = Math.min(canvas.width, canvas.height) * 0.02;
-        this.speed = Math.min(canvas.width, canvas.height) * 0.01;
-        this.color = 'blue';
+        this.speed = Math.min(Math.min(canvas.width, canvas.height) * 0.005, 5);
+        this.color = "#5b8fc9";
 
-        this.keys = {}; 
+        this.keys = {};
     }
 
     handleKey(key, isPressed) {
